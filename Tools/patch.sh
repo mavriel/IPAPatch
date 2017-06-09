@@ -169,7 +169,12 @@ fi
 # ---------------------------------------------------
 # 9. Install
 #
-#    Nothing To Do, Xcode Will Automatically Install the DummyApp We Overwrited
-
-
-
+# if Archive, copy files
+if [ "$ACTION" == "install" ]
+then
+    echo "copy files"
+    mkdir -p "$INSTALL_DIR/$TARGET_NAME.app/"
+    cp -r "$TARGET_APP_PATH/" "$INSTALL_DIR/$TARGET_NAME.app/"
+else
+    echo "no copy"
+fi
